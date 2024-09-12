@@ -19,17 +19,18 @@
       this._root = this._shadowRoot.getElementById('root')
 
     }
-    onCustomWidgetResize (width, height) {
+   ; 
+  onCustomWidgetResize (width, height) {
       this.render()
   }
-  
+  ;
   onCustomWidgetAfterUpdate (changedProps) { 
       this.render()
   }
-  
+  ;
   onCustomWidgetDestroy () { 
   }
-  
+  ;
   async render () {
       const dataBinding = this.dataBinding 
       if (!dataBinding || dataBinding.state !== 'success' ) {
@@ -37,7 +38,7 @@
       }
       this._root.textcontent = JSON.stringify(dataBinding) 
   }
-
+  ;
   }
 
   customElements.define('com-sap-sac-exercise-seamark-main', Main)
