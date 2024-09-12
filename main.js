@@ -6,7 +6,7 @@
       <div id="root" style="width: 100%; height: 100%;"> 
       Hello Custom Widget
       </div>
-  `;
+  `
   
   class Main extends HTMLElement {
 
@@ -18,21 +18,25 @@
       
       this._root = this._shadowRoot.getElementById('root')
     }
-    ;
 
     onCustomWidgetResize (width, height) {
       this.render()
+  }
+  
+  onCustomWidgetAfterUpdate (changedProps) { 
+      this.render()
+  }
+  
+  onCustomWidgetDestroy () { 
+  }
+  
+  async render () {
+      const dataBinding = this.dataBinding 
+      if (!dataBinding || dataBinding.state !== 'success' ) {
+          return
       }
-      
-      onCustomWidgetAfterUpdate (changedProps) {
-      }
-      
-      onCustomWidgetDestroy () {
-      }
-      
-      render () {
-      this._root.textcontent = `Hello Custom Widget clientwidth: ${this.clientWidth}, clientHeight: ${this.clientHeight}` }
-      
+      this._root.textcontent = JSON.stringify(dataBinding) 
+  }
   }
 
   customElements.define('com-sap-sac-exercise-seamark-main', Main)
