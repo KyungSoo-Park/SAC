@@ -19,6 +19,7 @@
       this._root = this._shadowRoot.getElementById('root')
     }
     ;
+
     onCustomWidgetResize (width, height) {
       this.render()
       }
@@ -30,7 +31,7 @@
       }
       
       render () {
-      this._root.textcontent = `Hello Custom Widget clientwidth: ${this.clientwidth}, clientHeight: ${this.clientHeight}` }
+      this._root.textcontent = `Hello Custom Widget clientwidth: ${this.clientWidth}, clientHeight: ${this.clientHeight}` }
       
   }
 
