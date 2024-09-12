@@ -18,6 +18,7 @@
       
       this._root = this._shadowRoot.getElementById('root')
     }
+    ;
     onCustomWidgetResize (width, height) {
       this.render()
       }
