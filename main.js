@@ -20,36 +20,36 @@ var parseMetadata = metadata => {
 }
 
 (function () {
-  const template = document.createElement('template') 
+  const template = document.createElement('template')
   template.innerHTML = `
-      <style>
-      </style>
-      <div id="root" style="width: 100%; height: 100%;"> 
-      Hello Custom Widget
-      </div>
-  `
-  
+        <style>
+        </style>
+        <div id="root" style="width: 100%; height: 100%;">
+        </div>
+      `
   class Main extends HTMLElement {
-
     constructor () {
       super()
-  
+
       this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(template.content.cloneNode(true)) 
-      
+      this._shadowRoot.appendChild(template.content.cloneNode(true))
+
       this._root = this._shadowRoot.getElementById('root')
+
       this._eChart = null
     }
 
     onCustomWidgetResize (width, height) {
       this.render()
-  }
-  
-  onCustomWidgetAfterUpdate (changedProps) { 
+    }
+
+    onCustomWidgetAfterUpdate (changedProps) {
       this.render()
-  }
-  
-  onCustomWidgetDestroy () { 
+    }
+
+
+    onCustomWidgetDestroy () {
+
   }
 
     async render () {
@@ -95,6 +95,4 @@ var parseMetadata = metadata => {
   }
 
   customElements.define('com-sap-sac-exercise-seamark-main', Main)
-    
-
 })()
