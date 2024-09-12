@@ -37,6 +37,7 @@ var parseMetadata = metadata => {
       this._root = this._shadowRoot.getElementById('root')
 
       this._eChart = null
+      this._selectedDataPoint = {}
     }
 
     onCustomWidgetResize (width, height) {
@@ -56,6 +57,11 @@ var parseMetadata = metadata => {
       this.dispatchEvent(new CustomEvent('propertiesChanged', { detail: { properties: { seriesType } } }))
       this.render()
     }
+
+    getSelectedDataPoint () {
+      return this._selectedDataPoint
+    }
+
 
     async render () {
       const dataBinding = this.dataBinding
@@ -98,6 +104,12 @@ var parseMetadata = metadata => {
         series
       }
       eChart.setOption(option)
+      eChart.on('click', (params) => {
+        // https://echarts.apache.org/en/api.html#events.Mouse%20events
+        const { seriesIndex, seriesName, dataIndex, data, name } = params
+        this._selectedDataPoint = { seriesIndex, seriesName, dataIndex, data, name }
+        this.dispatchEvent(new Event('onClick'))
+      })
     }
   }
 
