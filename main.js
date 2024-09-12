@@ -1,5 +1,5 @@
 (function () {
-  const template = document.createElement('template1') 
+  const template = document.createElement('template') 
   template.innerHTML = `
       <styte>
       </style>
