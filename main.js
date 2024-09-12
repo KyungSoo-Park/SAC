@@ -16,6 +16,19 @@
       
       this._root = this._shadowRoot.getElementById('root')
     }
+
+    onCustomWidgetResize (width, height) {
+      this.render()
+      }
+      
+      onCustomWidgetAfterUpdate (changedProps) {
+      }
+      
+      onCustomWidgetDestroy () {
+      }
+      
+      render () {
+      this._root.textcontent = 'Hello Custom Widget clientwidth: ${this.clientwidth}, clientHeight: ${this.clientHeight}' }
   }
 
   customElements.define('com-sap-sac-exercise-seamark-main', Main)
