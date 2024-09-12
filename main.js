@@ -15,7 +15,7 @@
       super()
   
       this._shadowRoot = this.attachShadow({ mode: 'open' })
-      this._shadowRoot.appendChild(template.content.cloneNode(true))
+      this._shadowRoot.appendChild(template.content.cloneNode(true)) 
       
       this._root = this._shadowRoot.getElementById('root')
     }
@@ -32,8 +32,8 @@
   }
     async render () {
       const dataBinding = this.dataBinding 
-      if (!dataBinding || dataBinding.state !== 'success') {
-          return                                              
+      if (!dataBinding || dataBinding.state !== 'success' ) {
+          return
       }
       this._root.textContent = JSON.stringify(dataBinding) 
   }
