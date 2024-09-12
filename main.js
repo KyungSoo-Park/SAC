@@ -10,6 +10,17 @@
   
   class Main extends HTMLElement {
 
+    onCustomWidgetResize (width, height) {
+      this.render()
+  }
+  
+  onCustomWidgetAfterUpdate (changedProps) { 
+      this.render()
+  }
+  
+  onCustomWidgetDestroy () { 
+  }
+
     constructor () {
       super()
   
@@ -17,21 +28,9 @@
       this._shadowRoot.appendChild(template.content.cloneNode(true)) 
       
       this._root = this._shadowRoot.getElementById('root')
-
-      onCustomWidgetResize (width, height) {
-        this.render()
-    }
-    
-    onCustomWidgetAfterUpdate (changedProps) { 
-        this.render()
-    }
-    
-    onCustomWidgetDestroy () { 
     }
 
-    }
-  
-  async render () {
+    async render () {
       const dataBinding = this.dataBinding 
       if (!dataBinding || dataBinding.state !== 'success' ) {
           return
