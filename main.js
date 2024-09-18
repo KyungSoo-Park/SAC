@@ -17,19 +17,24 @@
         this._root = this._shadowRoot.getElementById('root')
       }
 
-      onCustomWidgetResize (width, height) {
-        this.render()
-      }
+    onCustomWidgetResize (width, height) {
+      this.render()
+    }
 
-      onCustomWidgetAfterUpdate (changedProps) {
-      }
+    onCustomWidgetAfterUpdate (changedProps) {
+      this.render()
+    }
 
-      onCustomWidgetDestroy () {
-      }
+    onCustomWidgetDestroy () {
+    }
 
-      render () {
-        this._root.textContent = `Hello Custom Widget clientWidth: ${this.clientWidth}, clientHeight: ${this.clientHeight}`
+    async render () {
+      const dataBinding = this.dataBinding
+      if (!dataBinding || dataBinding.state !== 'success'){
+        return
       }
+      this._root.textContent = JSON.stringify(dataBinding)
+    }
     }
 
     customElements.define('com-sap-sac-exercise-seamark-main', Main)
