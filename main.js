@@ -10,7 +10,7 @@
     class Main extends HTMLElement {
       constructor () {
         super()
-  
+
         this._shadowRoot = this.attachShadow({ mode: 'open' })
         this._shadowRoot.appendChild(template.content.cloneNode(true))
   
@@ -20,7 +20,7 @@
       onCustomWidgetResize (width, height) {
         this.render()
       }
-  
+
       onCustomWidgetAfterUpdate (changedProps) {
       }
 
@@ -28,10 +28,9 @@
       }
 
       render () {
-        this._root.textContent = `Hello Custom Widget clientWidth: ${this.clientwidth}, clientHeight: ${this.clientHeight}` 
+        this._root.textContent = `Hello Custom Widget clientWidth: ${this.clientWidth}, clientHeight: ${this.clientHeight}`
       }
-
     }
 
-customElements.define('com-sap-sac-exercise-seamark-main', Main)
+    customElements.define('com-sap-sac-exercise-seamark-main', Main)
 })()
