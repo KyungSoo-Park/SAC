@@ -103,7 +103,7 @@ var parseMetadata = metadata => {
       eChart.on('click', (params) => {
         this.dispatchEvent(new Event('onClick'))
       })
-      
+
     }
   }
   
