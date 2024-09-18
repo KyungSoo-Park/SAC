@@ -90,17 +90,17 @@ var parseMetadata = metadata => {
 
       if (this._eChart) { echarts.dispose(this._eChart) }
       const eChart = this._eChart = echarts.init(this._root, 'main')
-      const option = {
-        xAxis: { type: 'category', data: categoryData },
-        yAxis: { type: 'value' },
-        tooltip: { trigger: 'axis' },
-        series
-      }
-      eChart.setOption(option)
-
       eChart.on('click', (params) => {
         this.dispatchEvent(new Event('onClick'))
       })
+//      const option = {
+//        xAxis: { type: 'category', data: categoryData },
+//        yAxis: { type: 'value' },
+//        tooltip: { trigger: 'axis' },
+//        series
+//      }
+      eChart.setOption(option)
+
     }
   }
   
