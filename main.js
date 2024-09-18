@@ -96,7 +96,11 @@ var parseMetadata = metadata => {
         tooltip: { trigger: 'axis' },
         series
       }
-      eChart.setOption(option)
+//      eChart.setOption(option)
+
+      eChart.on('click', (params) => {
+        this.dispatchEvent(new Event('onClick'))
+      })
     }
   }
   
