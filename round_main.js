@@ -16,9 +16,9 @@ class ChartPlotareaComponent extends HTMLElement {
 	/**
 	 * 사용자 설정 데이터와 함께 차트를 설정합니다.
 	 */
-	setExtensionData(extenstionData) {
+	setExtensionData(extensionData) {
 		console.log(extensionData);
-		const { chartType, isHorizontal, chartSize, series } = extenstionData;
+		const { chartType, isHorizontal, chartSize, series } = extensionData;
 		this._size = chartSize;
 		this._series = series;
 		this._chartType = chartType;
@@ -59,7 +59,7 @@ class ChartPlotareaComponent extends HTMLElement {
 		dataMarker.style.width = `${width}px`;
 		dataMarker.style.height = `${height}px`;
 		dataMarker.style.backgroundColor = color;
-		if ( this._rounded) {
+		if ( this._rounded ) {
 			const roundedStyle = this._isHorizontal
 				? `border-radius: 0 ${height / 2}px ${height / 2}px 0;`
 				:  `border-radius: ${width / 2}px ${width / 2}px 0 0;`;
